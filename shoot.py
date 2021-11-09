@@ -1,0 +1,26 @@
+import pgzrun
+
+from random import randint
+apple = Actor("apple")
+
+def draw():
+    screen.clear()
+    apple.draw()
+
+def place_apple():
+    apple.x = 300
+    apple.y = 200
+
+def on_mouse_down(pos):
+    if apple.collidepoint(pos):
+        print("good shot!")
+        place_apple()
+    else:
+        print("you missed!")
+        quit()
+    
+def place_apple():
+    apple.x = randint(10, 800)
+    apple.y = randint(10, 600)
+
+pgzrun.go()
